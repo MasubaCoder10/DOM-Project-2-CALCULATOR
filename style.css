@@ -1,0 +1,280 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+button#checkbox-1 {
+    height: 10px;
+    width: 10px;
+    border: 0;
+    border-radius: 50%;
+    
+}
+button#checkbox-2 {
+    height: 10px;
+    width: 10px;
+    border: 0;
+    border-radius: 50%;   
+}
+button#checkbox-3 {
+    height: 10px;
+    width: 10px;
+    border: 0;
+    border-radius: 50%;
+}
+
+div#check{
+   display: flex;
+
+    height: 2rem;
+    width: 2rem;
+    
+}
+
+.bb{
+    display: flex;
+    position: fixed;
+    margin-left: 2.5rem;;
+    border-radius: 5px;
+}
+.container{
+    height: 100vh;
+    width: 100vh;
+    display: grid;
+    place-items: center;
+}
+.calculator{
+    position: relative;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.heading{
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    
+}
+.number span{
+    margin: 6.7px;
+    font-size: 14px;
+    padding: 0px 0px;
+}
+.number{
+    margin-left: 2.2rem;
+}
+.text1{
+    font-size: 20px;
+}
+.text2{
+    font-size: 12px;
+
+}
+.result{
+    height: 4rem;
+    position: relative;
+    bottom: 1rem;
+    border-radius: 5px;
+}
+.upper-value{
+    position: absolute;
+    text-align: right;
+    bottom: 30%;
+    right: 5%;
+}
+.lower-value{
+    position: absolute;
+    text-align: right;
+    bottom: 2%;
+    right: 5%;
+    font-size: 32px;
+
+
+}
+button{
+    height: 40px;
+    width: 50px;
+    border: 0;
+    border-radius: 8px;
+    margin: 4px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#clear{
+    width: 105px;
+}
+
+#equal{
+    width: 105px;   
+}
+
+/* theme 1 color */
+.theme-1, body{
+    background-color:  hsl(222, 26%, 31%);
+}
+.theme-1 .buttons table{
+    background-color: hsl(223, 31%, 20%);
+    padding: 10px;
+    border-radius: 5px;
+}
+.theme-1 .bb{
+    background-color: hsl(223, 31%, 20%)
+}
+.theme-1 button#checkbox-1{
+    background-color: rgb(187, 50, 50);
+}
+.theme-1 button#checkbox-2{
+    background-color: hsl(223, 31%, 20%);
+}
+.theme-1 button#checkbox-3{
+    background-color: hsl(223, 31%, 20%);
+}
+.theme-1 .result{
+    background-color: hsl(224, 36%, 15%);
+}
+.theme-1 #equal{
+    color: #fff;
+    background-color: hsl(25, 98%, 40%);
+    box-shadow: 0px 2px 0px 1px hsl(6, 70%, 34%)
+}
+.theme-1 #backspace{ 
+    color: #fff;
+    background-color: hsl(185, 42%, 37%);
+    box-shadow: 0px 2px 0px 1px hsl(224, 28%, 35%);
+}
+.theme-1 #clear{
+    color: #fff;
+    background-color: #006666;
+    box-shadow: 0px 2px 0px 1px hsl(224, 28%, 35%);
+}
+.theme-1 .upper-value{
+    color: #fff;
+}
+.theme-1 .text1{
+    color: #fff;
+}
+.theme-1 .text2{
+    color: #fff;
+}
+.theme-1 .number{
+    color: #fff;
+}
+
+/* theme 2 color */
+.theme-2, body{
+    background-color:  hsl(0, 0%, 90%);
+}
+.theme-2 .buttons table{
+    background-color: hsl(0, 5%, 81%);
+    padding: 10px;
+    border-radius: 5px;
+}
+.theme-2 .bb{
+    background-color: hsl(0, 5%, 81%)
+}
+.theme-2 button#checkbox-1{
+    background-color: hsl(0, 5%, 81%);
+}
+.theme-2 button#checkbox-2{
+    background-color: rgb(187, 50, 50);
+}
+.theme-2 button#checkbox-3{
+    background-color: hsl(0, 5%, 81%);
+}
+.theme-2 .result{
+    background-color: hsl(0, 0%, 93%);
+}
+.theme-2 #equal{
+    color: #fff;
+    background-color: hsl(25, 98%, 40%);
+    box-shadow: 0px 2px 0px 1px hsl(6, 70%, 34%)
+}
+.theme-2 #backspace{ 
+    color: #fff;
+    background-color: hsl(185, 42%, 37%);
+    box-shadow: 0px 2px 0px 1px hsl(224, 28%, 35%);
+}
+.theme-2 #clear{
+    color: #fff;
+    background-color: #006666;
+    box-shadow: 0px 2px 0px 1px hsl(224, 28%, 35%);
+}
+.theme-2 .upper-value{
+    color: black;
+}
+.theme-2 .text1{
+    color: black;
+}
+.theme-2 .text2{
+    color: black;
+}
+.theme-2 .number{
+    color: black;
+}
+
+/* theme 3 color */
+.theme-3, body{
+    background-color:  hsl(268, 75%, 9%);
+}
+.theme-3 .buttons table{
+    background-color: hsl(268, 71%, 12%);
+    padding: 10px;
+    border-radius: 5px;
+}
+.theme-3 .bb{
+    background-color: hsl(268, 71%, 12%);
+}
+.theme-3 button#checkbox-1{
+    background-color: hsl(268, 71%, 12%);
+}
+.theme-3 button#checkbox-2{
+    background-color: hsl(268, 71%, 12%);
+}
+.theme-3 button#checkbox-3{
+    background-color: hsl(176, 100%, 44%);
+}
+.theme-3 .result{
+    background-color: hsl(268, 71%, 12%);
+}
+.theme-3 .btn-number{
+    color: hsl(52, 100%, 62%);
+    background-color: hsl(281, 89%, 26%);
+    box-shadow: 0px 2px 0px 1px  hsl(285, 91%, 52%)
+}
+.theme-3 .btn-operator{
+    color: hsl(52, 100%, 62%);
+    background-color: hsl(281, 89%, 26%);
+    box-shadow: 0px 2px 0px 1px  hsl(285, 91%, 52%)
+}
+.theme-3 #equal{
+    color: #fff;
+    background-color: hsl(176, 100%, 44%);
+    box-shadow: 0px 2px 0px 1px hsl(177, 92%, 70%)
+}
+.theme-3 #backspace{ 
+    color: #fff;
+    background-color: hsl(268, 47%, 21%);
+    box-shadow: 0px 2px 0px 1px hsl(290, 70%, 36%);
+}
+.theme-3 #clear{
+    color: #fff;
+    background-color: hsl(268, 47%, 21%);
+    box-shadow: 0px 2px 0px 1px hsl(290, 70%, 36%);
+}
+.theme-3 .upper-value{
+    color: hsl(52, 100%, 62%);
+}
+.theme-3 .text1{
+    color: hsl(52, 100%, 62%);
+}
+.theme-3 .text2{
+    color: hsl(52, 100%, 62%);
+}
+.theme-3 .number{
+    color: hsl(52, 100%, 62%);
+}
