@@ -36,9 +36,10 @@ let num1 = ""
 let num2 = ""
 let resultFinal = 0;
 let operation = ""
-let count = 0;
-
-
+let isInIfisInIfCount = 0;
+let opdDive = ""
+let num2Chek = ""
+let checkedText2 = false;
 
 // writting logic for number buttons...
 btn_number.forEach((item) =>{
@@ -47,22 +48,16 @@ btn_number.forEach((item) =>{
         //get the button element
         let buttonText = e.target.textContent;
         if(!operation){
-            if(e.target.textContent === "." && num1 === ""){
-                num1 = "0."
-            }/* else if(e.target.textContent === "." && num1 !== ""){
-                num1 +="."
-            } */
+            
             num1 += buttonText;
             result.textContent = num1;
             //temporary memory 1
             screenNum = num1;
-            console.log(screenNum);
         }else{
             num2 += e.target.textContent;
             result.textContent = num2;
              //temporary memory 2
             screenNum = num2;
-            console.log(screenNum + "yes");
         }
     })
 })
@@ -70,9 +65,11 @@ btn_number.forEach((item) =>{
 //logica for addition, division, subtraction and multiplication
 
 btn_operator.forEach((item) =>{
-    count++;
+    isInIfisInIfCount++;
+   
     item.addEventListener('click', (e) =>{
         if(operation && num2){
+            console.log(operation, num2);
             switch(operation) {
                 case "+":
                     resultFinal = resultFinal
@@ -98,9 +95,12 @@ btn_operator.forEach((item) =>{
                     num1 = "";
                     num2 = ""
                     result.textContent = resultFinal
+
                     break;
                 case "/":
-                    
+                    checkedText2 = true;
+                    num2Chek = num2;
+                     opdDive = operation;
                     resultFinal = resultFinal 
                     ? resultFinal / Number(num2)
                     : Number(num1) / Number(num2)
@@ -109,10 +109,11 @@ btn_operator.forEach((item) =>{
                     result.textContent = resultFinal
                     break;
                 case "=":
-                    
-
+                console.log("yes");
 
                     if(operation === "+"){
+                            
+                
                         resultFinal = resultFinal 
                         ? resultFinal + Number(num2)
                         : Number(num1) + Number(num2) 
@@ -121,6 +122,7 @@ btn_operator.forEach((item) =>{
                         ? resultFinal - Number(num2)
                         : Number(num1) - Number(num2) 
                     }else if(operation === "/"){
+                        console.log("divise /");
                         resultFinal = resultFinal 
                         ? resultFinal / Number(num2)
                         : Number(num1) / Number(num2) 
@@ -130,28 +132,31 @@ btn_operator.forEach((item) =>{
                         : Number(num1) * Number(num2) 
                     }
                     num1 = "";
-                    num2 = ""
+                    num2 = "" 
                     result.textContent = resultFinal
                     break;
             }
         }
-        operation = e.target.textContent
+        operation = e.target.textContent;
+       
     })
+
 })
 
-equal.addEventListener("click", () =>{
-    num1 = i
-
-    if((num1 === 0 && num2 === 0) ){
-        console.log("yes");
+equal.addEventListener("click", (e) =>{
+    
+    console.log(num2Chek+"yo");
+    if((num2Chek === "0" && opdDive === "/" && checkedText2) ){
+        checkedText2 = false;
+        console.log("soso");
         result.textContent = "Error";
-        console.log("yesyes");
         num1 = ""
         num2 = ""
         screenText = ""
         operation = ""
         resultFinal = 0;
     }
+
 })
 //change value
 clear.addEventListener('click', ()=>{
@@ -185,8 +190,8 @@ comma.addEventListener("click", (e) =>{
     if(e.target.textContent === "." && num1 === ""){
         num1 = "0."
         result.textContent = num1
-    }else if(e.target.textContent === "." && num1 !== "" && !num1.includes(".") && count === 0){
-        count = 0;
+    }else if(e.target.textContent === "." && num1 !== "" && !num1.includes(".") && isInIfCount === 0){
+        isInIfisInIfCount = 0;
         num1 = num1 + "."
         result.textContent=num1;
     }else if(e.target.textContent === "." && num2 === ""){
