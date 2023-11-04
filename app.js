@@ -36,11 +36,12 @@ let num1 = ""
 let num2 = ""
 let resultFinal = 0;
 let operation = ""
+let operationCheck =""
 let isInIfisInIfCount = 0;
 let opdDive = ""
 let num2Chek = ""
 let checkedText2 = false;
-
+let checkDot = false; 
 // writting logic for number buttons...
 btn_number.forEach((item) =>{
     item.addEventListener('click', (e) =>{
@@ -48,12 +49,13 @@ btn_number.forEach((item) =>{
         //get the button element
         let buttonText = e.target.textContent;
         if(!operation){
-            
+           
             num1 += buttonText;
             result.textContent = num1;
             //temporary memory 1
             screenNum = num1;
         }else{
+            
             num2 += e.target.textContent;
             result.textContent = num2;
              //temporary memory 2
@@ -65,20 +67,21 @@ btn_number.forEach((item) =>{
 //logica for addition, division, subtraction and multiplication
 
 btn_operator.forEach((item) =>{
-    isInIfisInIfCount++;
-   
+    
     item.addEventListener('click', (e) =>{
         if(operation && num2){
-            console.log(operation, num2);
+
             switch(operation) {
                 case "+":
+                    console.log(resultFinal);
                     resultFinal = resultFinal
                     
-                    ? resultFinal + Number(num1) + Number(num2)
+                    ? resultFinal + Number(num2)
                     : Number(num1) + Number(num2)
                     num1 ="";
                     num2 ="";
-                    result.textContent = resultFinal;
+                     result.textContent = resultFinal; 
+                    console.log(isInIfisInIfCount ); 
                     break;
                 case "-":
                     resultFinal = resultFinal 
@@ -112,7 +115,7 @@ btn_operator.forEach((item) =>{
                 console.log("yes");
 
                     if(operation === "+"){
-                            
+                           
                 
                         resultFinal = resultFinal 
                         ? resultFinal + Number(num2)
@@ -138,14 +141,13 @@ btn_operator.forEach((item) =>{
             }
         }
         operation = e.target.textContent;
+        console.log(operation);
        
     })
 
 })
 
 equal.addEventListener("click", (e) =>{
-    
-    console.log(num2Chek+"yo");
     if((num2Chek === "0" && opdDive === "/" && checkedText2) ){
         checkedText2 = false;
         console.log("soso");
@@ -168,34 +170,45 @@ clear.addEventListener('click', ()=>{
     result.textContent = 0;
 })
 backspace.addEventListener('click', () =>{
-    if(num1 === "" && num2=="") {
+    checkDot = false;
+   /*  if(num1 === "" && num2=="") {
         resultFinal = resultFinal.toString().slice(0,-1)
         result.textContent = result.textContent.slice(0,-1);
-        resultFinal = parseInt(resultFinal)
-    } else if(num1 !=="" && num2 === ""){
+        if(resultFinal.toString().length > 0){
+            resultFinal = parseInt(resultFinal) 
+        }
+        
+        
+        console.log("resultFinal "+ resultFinal);
+    } else */ if(num1 !=="" && num2 === ""){
+        
         num1 = num1.toString().slice(0,-1)
         result.textContent = result.textContent.slice(0,-1);
-        num1 = parseInt(num1)
+        /* num1 = parseInt(num1) */
+        console.log("num1 " + num1);
     }else if(num2 !== ""){
         num2 = num2.toString().slice(0,-1)
         result.textContent = result.textContent.slice(0,-1);
-        num2 = parseInt(num2)
+        /* num2 = parseInt(num2) */
     }
     
 })
 
+
 comma.addEventListener("click", (e) =>{
    
-    
-    if(e.target.textContent === "." && num1 === ""){
+    if(num1 === "" && !checkDot){
+        checkDot = true;
         num1 = "0."
         result.textContent = num1
-    }else if(e.target.textContent === "." && num1 !== "" && !num1.includes(".") && isInIfCount === 0){
-        isInIfisInIfCount = 0;
+    }else 
+    if(!operation && num1 !== "" && !num1.includes(".") && !checkDot ){
+        checkDot = true;
+       
         num1 = num1 + "."
         result.textContent=num1;
-    }else if(e.target.textContent === "." && num2 === ""){
-        console.log(num2 + "num2");
+    }else if( num2 === ""  && operation){
+        isInIfisInIfCount = 0;
         num2 = "0."
         result.textContent = num2;
     }else if(e.target.textContent === "." && num2 !== "" && !num2.includes(".")){
